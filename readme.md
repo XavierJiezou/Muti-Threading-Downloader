@@ -1,5 +1,5 @@
 # introduce
-this is a Multithreading downloader based on python. 
+this is a multithreading downloader based on python. 
 # why multithreading
 multithreading can maximize the use of the network that single threading cannot.
 # install
