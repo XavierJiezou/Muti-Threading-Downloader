@@ -15,10 +15,10 @@ pip3 install requests
 https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/1250921_c7af3a2b73d03604f6421ef11134af72.mp4
 ```
 # comparation
-| 对比项 | 多线程 |  单线程 |
+| item | muti-threading |  single-threading |
 |:--:|:--:|:--:|
-| 总计用时 | 93s | 560s |
-| 平均速度 | 9.06MB/s | 1.50MB/s|
+| total-time | 93s | 560s |
+| average-speed | 9.06MB/s | 1.50MB/s|
 # todo
 - [x] mutithreading
 - [ ] breakpoint resume
