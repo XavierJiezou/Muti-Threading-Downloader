@@ -8,7 +8,7 @@ pip3 install requests
 ```
 # single threading
 [single_threading.py](single_threading.py)
-# multithreading
+# multi threading
 [muti_threading.py](muti_threading.py)
 # test sample
 ```https
