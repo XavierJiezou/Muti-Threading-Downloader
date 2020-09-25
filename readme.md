@@ -1,7 +1,7 @@
 # introduce
 this is a Multithreading downloader based on python. 
 # why multithreading
-multithreading can maximize the use of the network, but single threading cannot.
+multithreading can maximize the use of the network that single threading cannot.
 # install
 ```bash
 pip3 install requests
