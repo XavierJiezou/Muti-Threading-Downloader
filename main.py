@@ -1,13 +1,13 @@
 from concurrent.futures import ThreadPoolExecutor
-from lesson_list import lesson_list
 from requests import get, head
 import time
+import os
 
 
-class downloader:
-    def __init__(self, url, num, name):
+class Downloader:
+    def __init__(self, url, name):
         self.url = url
-        self.num = num
+        self.num = min(32, (os.cpu_count() or 1) + 4)
         self.name = name
         self.getsize = 0
         r = head(self.url, allow_redirects=True)
@@ -45,18 +45,17 @@ class downloader:
                 speed = f'{down/1024:6.2f}MB/s'
             else:
                 speed = f'{down:6.2f}KB/s'
-            print(f'process: {process:6.2f}% | speed: {speed}', end='\r')
+            print(f'Process: {process:6.2f}% | Speed: {speed}', end='\r')
             if process >= 100:
-                print(f'process: {100.00:6}% | speed:  00.00KB/s', end=' | ')
+                print(f'Process: {100.00:6}% | Speed:  00.00KB/s', end=' | ')
                 break
         tp.shutdown()
         end_time = time.time()
         total_time = end_time-start_time
         average_speed = self.size/total_time/1024/1024
-        print(f'total-time: {total_time:.0f}s | average-speed: {average_speed:.2f}MB/s')
+        print(
+            f'Total-time: {total_time:.0f}s | Average-speed: {average_speed:.2f}MB/s')
 
 
 if __name__ == '__main__':
-    url = 'https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/1250921_c7af3a2b73d03604f6421ef11134af72.mp4'
-    down = downloader(url, 12, 'test.mp4')
-    down.main()
+    Downloader('https://1251316161.vod2.myqcloud.com/007a649dvodcq1251316161/2074194f5285890808508755340/Q5TVeeaCdf0A.mp4', 'test.mp4').main()

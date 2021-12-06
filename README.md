@@ -30,7 +30,7 @@ python main.py
 ## Result
 
 | Item          | Muti-thread | Single-thread |
-|---------------|-------------|---------------|
+|:-------------:|:-----------:|:-------------:|
 | Total-time    | 93s         | 560s          |
 | Average-speed | 9.06MB/s    | 1.50MB/s      |
 
