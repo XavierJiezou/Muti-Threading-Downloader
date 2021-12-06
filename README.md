@@ -5,7 +5,7 @@ This is a Multi-thread downloader based on Python.
 ## Install
 
 ```bash
-pip install requests
+pip install requests tqdm
 ```
 
 ## Usage
