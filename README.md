@@ -11,16 +11,21 @@ pip install requests
 ## Usage
 
 ```bash
-git clone 
+git clone https://github.com/XavierJiezou/multi-thread-downloader.git
+cd multi-thread-downloader
 ```
 
 ### Single thread
 
-
+```bash
+python temp.py
+```
 
 ### Multi thread
 
-[muti_threading.py](muti_threading.py)
+```bash
+python main.py
+```
 
 ## Result
 
