@@ -53,8 +53,7 @@ class Downloader:
         end_time = time.time()
         total_time = end_time-start_time
         average_speed = self.size/total_time/1024/1024
-        print(
-            f'Total-time: {total_time:.0f}s | Average-speed: {average_speed:.2f}MB/s')
+        print(f'Total-time: {total_time:.0f}s | Average-speed: {average_speed:.2f}MB/s')
 
 
 if __name__ == '__main__':
