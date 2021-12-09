@@ -5,13 +5,14 @@ import os
 
 
 class Downloader:
-    def __init__(self, url, name):
+    def __init__(self, url, name: str = None):
         self.url = url
         self.num = min(32, (os.cpu_count() or 1) + 4)
-        self.name = name
+        self.name = os.path.basename(self.url) if not name else name
         self.getsize = 0
         r = head(self.url, allow_redirects=True)
         self.size = int(r.headers['Content-Length'])
+        self.main()
 
     def down(self, start, end, chunk_size=10240):
         headers = {'range': f'bytes={start}-{end}'}
@@ -57,4 +58,4 @@ class Downloader:
 
 
 if __name__ == '__main__':
-    Downloader('https://1251316161.vod2.myqcloud.com/007a649dvodcq1251316161/2074194f5285890808508755340/Q5TVeeaCdf0A.mp4', 'test.mp4').main()
+    Downloader('https://1251316161.vod2.myqcloud.com/007a649dvodcq1251316161/2074194f5285890808508755340/Q5TVeeaCdf0A.mp4')
