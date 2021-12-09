@@ -12,9 +12,9 @@ class Downloader:
         self.getsize = 0
         r = head(self.url, allow_redirects=True)
         self.size = int(r.headers['Content-Length'])
-        self.main()
+        self.__main__()
 
-    def down(self, start, end, chunk_size=10240):
+    def __down__(self, start, end, chunk_size=10240):
         headers = {'range': f'bytes={start}-{end}'}
         r = get(self.url, headers=headers, stream=True)
         with open(self.name, "rb+") as f:
@@ -23,7 +23,7 @@ class Downloader:
                 f.write(chunk)
                 self.getsize += chunk_size
 
-    def main(self):
+    def __main__(self):
         start_time = time.time()
         f = open(self.name, 'wb')
         f.truncate(self.size)
@@ -33,7 +33,7 @@ class Downloader:
         start = 0
         for i in range(self.num):
             end = int((i+1)/self.num*self.size)
-            future = tp.submit(self.down, start, end)
+            future = tp.submit(self.__down__, start, end)
             futures.append(future)
             start = end+1
         while True:
